@@ -9,20 +9,55 @@ cache:
     - "$HOME/.cache/pip"
 python:
   - "2.7"
+  - "3.3"
   - "3.4"
-env:
-  - DJANGO="1.7"
-  - DJANGO="1.8"
-  - DJANGO="1.9"
-  - CELERY="3"
-  - CELERY="4"
+  - "3.5"
+  - "pypy"
+jobs:
+  include:
+    - stage: core
+      script: tox
+      env:
+        - TOXENV=py27
+        - TOXENV=py33
+        - TOXENV=py34
+        - TOXENV=py35
+        - TOXENV=pypy
+        - TOXENV=flake8
+    - stage: contrib
+      script: tox
+      env:
+        - TOXENV=py27-django-18
+        - TOXENV=py27-django-19
+        - TOXENV=py27-django-110
+        - TOXENV=py34-django-18
+        - TOXENV=py34-django-19
+        - TOXENV=py34-django-110
+        - TOXENV=py35-django-18
+        - TOXENV=py35-django-19
+        - TOXENV=py35-django-110
+        - TOXENV=py27-django-18
+        - TOXENV=py33-django-18
+        - TOXENV=py34-django-18
+        - TOXENV=py35-django-18
+        - TOXENV=py27-django-17
+        - TOXENV=py33-django-17
+        - TOXENV=py34-django-17
+        - TOXENV=py27-django-16
+        - TOXENV=py27-flask-10
+        - TOXENV=py27-flask-11
+        - TOXENV=py35-flask-10
+        - TOXENV=py35-flask-11
+        - TOXENV=py35-flask-10
+        - TOXENV=py35-flask-11
+        - TOXENV=py27-celery-3
+        - TOXENV=py27-celery-4
+
 
 install:
   - pip install tox tox-travis wheel codecov "coverage<4"
 before_script:
   - pip freeze
-script:
-  - tox
 after_success:
   - codecov -e DJANGO
 
