@@ -7,8 +7,7 @@ addons:
 cache:
   directories:
     - "$HOME/.cache/pip"
-
-- env:
+env:
   - TOXENV=py27
   - TOXENV=py33
   - TOXENV=py34
