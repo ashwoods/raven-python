@@ -19,43 +19,44 @@ jobs:
       script: tox -e $TOXENV
       env:
         matrix:
-          - TOXENV=py27
-          - TOXENV=py33
-          - TOXENV=py34
-          - TOXENV=py35
-          - TOXENV=pypy
-          - TOXENV=flake8
+
     - stage: contrib
-      script: tox -e $TOXENV
-      env:
-        matrix:
-          - TOXENV=py27-django-18
-          - TOXENV=py27-django-19
-          - TOXENV=py27-django-110
-          - TOXENV=py34-django-18
-          - TOXENV=py34-django-19
-          - TOXENV=py34-django-110
-          - TOXENV=py35-django-18
-          - TOXENV=py35-django-19
-          - TOXENV=py35-django-110
-          - TOXENV=py27-django-18
-          - TOXENV=py33-django-18
-          - TOXENV=py34-django-18
-          - TOXENV=py35-django-18
-          - TOXENV=py27-django-17
-          - TOXENV=py33-django-17
-          - TOXENV=py34-django-17
-          - TOXENV=py27-django-16
-          - TOXENV=py27-flask-10
-          - TOXENV=py27-flask-11
-          - TOXENV=py35-flask-10
-          - TOXENV=py35-flask-11
-          - TOXENV=py35-flask-10
-          - TOXENV=py35-flask-11
-          - TOXENV=py27-celery-3
-          - TOXENV=py27-celery-4
 
+env:
+  matrix:
+    - TOXENV=py27
+    - TOXENV=py33
+    - TOXENV=py34
+    - TOXENV=py35
+    - TOXENV=pypy
+    - TOXENV=flake8
+    - TOXENV=py27-django-18
+    - TOXENV=py27-django-19
+    - TOXENV=py27-django-110
+    - TOXENV=py34-django-18
+    - TOXENV=py34-django-19
+    - TOXENV=py34-django-110
+    - TOXENV=py35-django-18
+    - TOXENV=py35-django-19
+    - TOXENV=py35-django-110
+    - TOXENV=py27-django-18
+    - TOXENV=py33-django-18
+    - TOXENV=py34-django-18
+    - TOXENV=py35-django-18
+    - TOXENV=py27-django-17
+    - TOXENV=py33-django-17
+    - TOXENV=py34-django-17
+    - TOXENV=py27-django-16
+    - TOXENV=py27-flask-10
+    - TOXENV=py27-flask-11
+    - TOXENV=py35-flask-10
+    - TOXENV=py35-flask-11
+    - TOXENV=py35-flask-10
+    - TOXENV=py35-flask-11
+    - TOXENV=py27-celery-3
+    - TOXENV=py27-celery-4
 
+script: tox -e $TOXENV
 install:
   - pip install tox wheel codecov "coverage<4"
 before_script:
