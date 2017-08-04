@@ -34,27 +34,29 @@ env:
   - TOXENV=py27-celery-4
 jobs:
   include:
-    - stage: test
+    - stage: core
       python: 2.7
       env: TOXENV=py27
-    - stage: test
+    - stage: core
       python: 3.3
       env: TOXENV=py33
-    - stage: test
+    - stage: core
       python: 3.4
       env: TOXENV=py34
-    - stage: test
+    - stage: core
       python: 3.5
       env: TOXENV=py35
-    - stage: test
+    - stage: core
       python: 3.5
       env: TOXENV=py35
-    - stage: test
+    - stage: core
       python: pypy
       env: TOXENV=pypy
-    - stage: test
+    - stage: core
       python: 3.5
       env: TOXENV=flake8
+
+    - stage: test
 
     - stage: contrib
       python: 2.7
