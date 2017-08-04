@@ -8,7 +8,6 @@ cache:
   directories:
     - "$HOME/.cache/pip"
 
-env:
 
 jobs:
   include:
@@ -35,19 +34,19 @@ jobs:
       env: TOXENV=flake8
 
 
-    - stage: contrib django
+    - stage: contrib
       python: 2.7
       env: TOXENV=py27-django-16
-    - stage: contrib django
+    - stage: contrib
       python: 2.7
       env: TOXENV=py27-django-17
-    - stage: contrib django
+    - stage: contrib
       python: 2.7
       env: TOXENV=py27-django-18
-    - stage: contrib django
+    - stage: contrib
       python: 2.7
       env: TOXENV=py27-django-19
-    - stage: contrib django
+    - stage: contrib
       python: 2.7
       env: TOXENV=py27-django-110
 
